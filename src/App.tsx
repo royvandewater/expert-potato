@@ -1,11 +1,18 @@
 import React from 'react';
 import * as R from 'ramda'
 import { EventEmitter } from 'events'
+import { formatISO } from 'date-fns'
 import './App.css';
+
+interface Message {
+  timestamp: string;
+  author: string;
+  text: string;
+}
 
 class Connection extends EventEmitter {
   public readonly index: number;
-  private readonly messages: string[];
+  private readonly messages: Message[];
 
   constructor(index:number) {
     super()
@@ -13,13 +20,19 @@ class Connection extends EventEmitter {
     this.messages = [];
   }
 
-  onMessage = (message: string) => {
+  onMessage = (message: Message) => {
     this.messages.push(message)
 
     this.emit('messages:changed', R.clone(this.messages))
   }
 
-  sendMessage = (message: string) => {
+  sendMessage = (text: string) => {
+    const message: Message = {
+      timestamp: formatISO(Date.now()), 
+      author:`connection ${this.index}`, 
+      text,
+    }
+
     this.emit('message', message)
   }
 }
@@ -37,9 +50,45 @@ const createConnections = () => {
   return connections
 }
 
+interface ConnectionProps {
+  connection: Connection;
+  messages: Message[];
+}
+
+const ConnectionSection = ({connection, messages}: ConnectionProps) => {
+  const input = React.useRef<HTMLInputElement>(null)
+
+  const sendMessage = () => {
+    if (!input.current) return
+    connection.sendMessage(input.current.value)
+  }
+
+  return (
+    <section className="ConnectionSection">
+      <h1>Connection: {connection.index}</h1>
+      <div>
+        <input ref={input} type="text" />
+        <button type="button" onClick={sendMessage}>Send</button>
+      </div>
+      <h2>Messages</h2>
+      <table className="Messages">
+        <tbody>
+          {messages.map(({timestamp, author, text}, i) => (
+            <tr key={i}>
+              <td>{timestamp}</td>
+              <td>{author}</td>
+              <td>{text}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )
+}
+
 interface MessageLogItem {
   index: number;
-  messages: string[];
+  messages: Message[];
 }
 
 function App() {
@@ -63,14 +112,10 @@ function App() {
   return (
     <div className="App">
       {connections.map(connection => (
-        <section key={connection.index}>
-          <h1>Connection: {connection.index}</h1>
-          <button type="button" onClick={() => connection.sendMessage('Hi!')}>Say Hi!</button>
-          <h2>Messages</h2>
-          <ul>
-            {messageLog[connection.index].messages.map((message, i) => <li key={i}>{message}</li>)}
-          </ul>
-        </section>
+        <ConnectionSection 
+          key={connection.index} 
+          connection={connection} 
+          messages={messageLog[connection.index].messages} />
       ))}
     </div>
   );

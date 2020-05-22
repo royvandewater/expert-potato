@@ -37,14 +37,28 @@
   }
 }
 
-.App ul {
-  list-style: none;
+section.ConnectionSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.App ul li {
+table.Messages {
+  border-spacing: 0;
+}
+
+table.Messages td {
   border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 4px;
 }
 
-.App ul li:last-of-type {
-  border-bottom: 1px solid black;
+table.Messages td:first-of-type {
+  border-left: 1px solid black;
+}
+
+table.Messages td:last-of-type {
+  border-right: 1px solid black;
 }
