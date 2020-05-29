@@ -1,64 +1,46 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+section {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+section:nth-child(odd) {
+  background-color: #eff;
 }
 
 section.ConnectionSection {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 960px;
 }
 
 table.Messages {
   border-spacing: 0;
 }
 
-table.Messages td {
-  border-top: 1px solid black;
+table.Messages tr {
   border-bottom: 1px solid black;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+}
+
+table.Messages tr:last-of-type {
+  border-bottom: none;
+}
+
+table.Messages td {
+  border: none;
   padding: 4px;
 }
 
-table.Messages td:first-of-type {
-  border-left: 1px solid black;
+table.Messages td.Timestamp {
+  color: #444;
 }
 
-table.Messages td:last-of-type {
-  border-right: 1px solid black;
+table.Messages td.Author {
+  font-weight: bold;
 }
