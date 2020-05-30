@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/expert-potato/static/css/main.871f269a.chunk.css",
+    "main.js": "/expert-potato/static/js/main.c66f576e.chunk.js",
+    "main.js.map": "/expert-potato/static/js/main.c66f576e.chunk.js.map",
+    "runtime-main.js": "/expert-potato/static/js/runtime-main.82a00ceb.js",
+    "runtime-main.js.map": "/expert-potato/static/js/runtime-main.82a00ceb.js.map",
+    "static/js/2.31bd7176.chunk.js": "/expert-potato/static/js/2.31bd7176.chunk.js",
+    "static/js/2.31bd7176.chunk.js.map": "/expert-potato/static/js/2.31bd7176.chunk.js.map",
+    "index.html": "/expert-potato/index.html",
+    "precache-manifest.d0575d2e86a13a37c081f729c53cf87e.js": "/expert-potato/precache-manifest.d0575d2e86a13a37c081f729c53cf87e.js",
+    "service-worker.js": "/expert-potato/service-worker.js",
+    "static/css/main.871f269a.chunk.css.map": "/expert-potato/static/css/main.871f269a.chunk.css.map",
+    "static/js/2.31bd7176.chunk.js.LICENSE.txt": "/expert-potato/static/js/2.31bd7176.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.82a00ceb.js",
+    "static/js/2.31bd7176.chunk.js",
+    "static/css/main.871f269a.chunk.css",
+    "static/js/main.c66f576e.chunk.js"
+  ]
+}
