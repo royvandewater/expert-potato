@@ -132,7 +132,6 @@ class Connection extends EventEmitter {
 
   private sync = () => {
     const root = this.rootHash()
-    this.log('emitting root', {root, entries: this.entries})
     this.bus.emit('root', root)
   }
 

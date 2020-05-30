@@ -41,17 +41,16 @@ const ConnectionSection = ({connection, messages}: ConnectionProps) => {
         </form>
       </div>
       <h2>Messages</h2>
-      <table className="Messages">
-        <tbody>
-          {messages.map(({timestamp, author, text}, i) => (
-            <tr key={i}>
-              <td className="Timestamp">{formatTime(timestamp)}</td>
-              <td className="Author">{author}</td>
-              <td>{text}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
+      <div className="Messages">
+        {messages.map(({timestamp, author, text}, i) => (
+          <>
+            <div className="Timestamp">{formatTime(timestamp)}</div>
+            <div className="Author">{author}</div>
+            <div>{text}</div>
+          </>
+        ))}
+      </div>
     </section>
   )
 }

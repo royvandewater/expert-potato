@@ -6,6 +6,9 @@
 
 section {
   text-align: center;
+  padding: 25px;
+  width: calc(100% - 50px);
+  max-width: 960px;
 }
 
 section:nth-child(odd) {
@@ -16,31 +19,22 @@ section.ConnectionSection {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 100%;
-  max-width: 960px;
 }
 
-table.Messages {
-  border-spacing: 0;
+.Messages {
+  display: grid;
+  grid-template-columns: max-content max-content auto;
+  text-align: left;
 }
 
-table.Messages tr {
-  border-bottom: 1px solid black;
-}
-
-table.Messages tr:last-of-type {
-  border-bottom: none;
-}
-
-table.Messages td {
-  border: none;
+.Messages > div {
   padding: 4px;
 }
 
-table.Messages td.Timestamp {
+.Messages .Timestamp {
   color: #444;
 }
 
-table.Messages td.Author {
+.Messages .Author {
   font-weight: bold;
 }
