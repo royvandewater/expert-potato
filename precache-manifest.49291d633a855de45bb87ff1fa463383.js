@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c4e2711dd4f3aa79e56c8507c355ed5c",
+    "revision": "3dd0af37261f90940eb71fc6120361a9",
     "url": "/expert-potato/index.html"
   },
   {
